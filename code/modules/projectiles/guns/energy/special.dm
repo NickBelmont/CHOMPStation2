@@ -61,6 +61,7 @@
 		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
 		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
 		list(mode_name="induce specific mutations", projectile_type=/obj/item/projectile/energy/floramut/gene, modifystate="floramut"),
+		list(mode_name="prune reagents", projectile_type=/obj/item/projectile/energy/floraprune,modifystate="floramut"), //CHOMPADD Somatoray mode for reducing reagents
 		)
 
 /obj/item/gun/energy/floragun/Initialize()

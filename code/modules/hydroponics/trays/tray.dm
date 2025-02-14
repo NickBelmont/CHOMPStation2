@@ -245,7 +245,14 @@
 		if(prob(mutchance))
 			yield_mod = min(10,yield_mod+rand(1,2))
 			return
-
+	//CHOMPedit: Add tray effect for pruning somatoray
+	else if(istype(Proj, /obj/item/projectile/energy/floraprune))
+		var/obj/item/projectile/energy/floraprune/GP = Proj
+		mutchance *= GP.lasermod
+		if(prob(mutchance) && length(seed.chems) > 1)
+			seed = seed.diverge()
+			seed.chems ^= safepick(seed.chems)
+	//CHOMPedit end
 	..()
 
 /obj/machinery/portable_atmospherics/hydroponics/CanPass(atom/movable/mover, turf/target)
