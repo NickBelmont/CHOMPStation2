@@ -127,6 +127,7 @@
 	var/obj/item/projectile/energy/floramut/gene/G = .
 	var/obj/item/projectile/energy/florayield/GY = .
 	var/obj/item/projectile/energy/floramut/GM = .
+	var/obj/item/projectile/energy/floraprune/GP = .//CHOMPadd: Implement pruning somatoray
 	// Inserting the upgrade level of the gun to the projectile as there isn't a better way to do this.
 	if(istype(G))
 		G.gene = gene
@@ -135,6 +136,10 @@
 		GY.lasermod = emitter.rating
 	else if(istype(GM))
 		GM.lasermod = emitter.rating
+	//CHOMPedit: Implement pruning somatoray
+	else if(istype(GP))
+		GP.lasermod = emitter.rating
+	//CHOMPedit end
 
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"

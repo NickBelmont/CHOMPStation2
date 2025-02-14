@@ -249,9 +249,13 @@
 	else if(istype(Proj, /obj/item/projectile/energy/floraprune))
 		var/obj/item/projectile/energy/floraprune/GP = Proj
 		mutchance *= GP.lasermod
-		if(prob(mutchance) && length(seed.chems) > 1)
-			seed = seed.diverge()
-			seed.chems ^= safepick(seed.chems)
+		if(prob(mutchance) && seed)
+			if(length(seed.chems) > 1)
+				var/turf/T = get_turf(loc)
+				seed = seed.diverge()
+				T.visible_message(span_infoplain(span_bold("\The [seed.display_name]") + " quivers!"))
+				seed.chems ^= safepick(seed.chems)
+			return
 	//CHOMPedit end
 	..()
 
